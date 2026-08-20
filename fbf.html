@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FBF PROJECT</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container py-5">
+    <h1 class="mb-4 text-center">FBF PROJECT V1.0</h1>
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Item</th>
+            <th scope="col">Matt Qty</th>
+            <th scope="col">Luigi Qty</th>
+            <th scope="col">Over All Qty</th>
+            <th scope="col">Remarks</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <!-- Rows generated below -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const images = [
+      "images/970c00pb1130.jpg",
+      "images/970c00pb1430.jpg",
+      "images/970c00pb1569.jpg",
+      "images/970c00pb1594.jpg",
+      "images/970c01pb12.jpg",
+      "images/970c224pb01.jpg",
+      "images/973pb1671c01.jpg",
+      "images/973pb2913c02.jpg",
+      "images/973pb5306c01.jpg",
+      "images/973pb5376c01.jpg",
+      "images/973pb5647c01.jpg",
+      "images/973pb6180c01.jpg",
+      "images/973pb6282c01.jpg",
+      "images/973pb6283c01.jpg",
+      "images/973pb6285c01.jpg",
+      "images/973pb6379c01.jpg",
+      "images/973pb6601c01.jpg",
+      "images/973pb6606c01.jpg",
+      "images/970c00pb0354.jpg",
+      "images/970c00pb0537.png"
+    ];
+
+    // Matt Qty, Luigi Qty, Over All Qty for each row (in order). Empty string = not yet filled in.
+    const qtyData = [
+      { matt: 1, luigi: 1, overall: 2, remarks: "" },   // Row 1
+      { matt: 1, luigi: 1, overall: 2, remarks: "" },   // Row 2
+      { matt: 1, luigi: 1, overall: 2, remarks: "" },   // Row 3
+      { matt: 0, luigi: 1, overall: 1, remarks: "" },   // Row 4
+      { matt: 0, luigi: 1, overall: 1, remarks: "" },   // Row 5
+      { matt: 1, luigi: 1, overall: 2, remarks: "" },   // Row 6
+      { matt: 0, luigi: 1, overall: 1, remarks: "" },   // Row 7
+      { matt: 1, luigi: 1, overall: 2, remarks: "" },   // Row 8
+      { matt: 0, luigi: 1, overall: 1, remarks: "" },   // Row 9
+      { matt: 2, luigi: 2, overall: 4, remarks: "" },   // Row 10
+      { matt: 1, luigi: 1, overall: 2, remarks: "" },   // Row 11
+      { matt: 2, luigi: 0, overall: 2, remarks: "" },   // Row 12
+      { matt: 0, luigi: 1, overall: 1, remarks: "" },   // Row 13
+      { matt: 1, luigi: 1, overall: 2, remarks: "" },   // Row 14
+      { matt: 1, luigi: 1, overall: 2, remarks: "" },   // Row 15
+      { matt: 1, luigi: 0, overall: 1, remarks: "" },   // Row 16
+      { matt: 2, luigi: 2, overall: 4, remarks: "Wipe out torso print" },   // Row 17
+      { matt: 1, luigi: 1, overall: 2, remarks: "" },  // Row 18
+      { matt: 1, luigi: 1, overall: 2, remarks: "" }, // Row 19
+      { matt: 1, luigi: 1, overall: 2, remarks: "" }  // Row 20
+    ];
+
+    const tbody = document.getElementById('table-body');
+    for (let i = 1; i <= 20; i++) {
+      const row = document.createElement('tr');
+      const qty = qtyData[i - 1];
+      const img = images[i - 1]
+        ? `<img src="${images[i - 1]}" alt="Item ${i}" class="img-fluid" style="max-height: 80px;">`
+        : '';
+      row.innerHTML = `
+        <th scope="row">${i}</th>
+        <td>${img}</td>
+        <td>${qty.matt}</td>
+        <td>${qty.luigi}</td>
+        <td>${qty.overall}</td>
+        <td>${qty.remarks}</td>
+      `;
+      tbody.appendChild(row);
+    }
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
